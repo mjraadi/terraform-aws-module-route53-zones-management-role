@@ -1,5 +1,4 @@
-# Get current AWS account and organization information
-data "aws_caller_identity" "current" {}
+# Get current organization information
 data "aws_organizations_organization" "current" {}
 
 #------------------------------------------------------------------------------
