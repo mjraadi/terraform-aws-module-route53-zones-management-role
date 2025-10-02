@@ -27,8 +27,8 @@ variable "hosted_zone_ids" {
 variable "max_session_duration" {
   description = "Maximum session duration in seconds (1 hour to 12 hours)"
   type        = number
-  default     = 3600  # 1 hour
-  
+  default     = 3600 # 1 hour
+
   validation {
     condition     = var.max_session_duration >= 3600 && var.max_session_duration <= 43200
     error_message = "Session duration must be between 3600 (1 hour) and 43200 (12 hours) seconds."
