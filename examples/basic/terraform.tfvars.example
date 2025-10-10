@@ -1,0 +1,38 @@
+# Example terraform.tfvars file
+# Copy this to terraform.tfvars and update with your actual values
+
+role_name        = "Route53DNSManagementRole"
+role_description = "Cross-account role for managing Route53 DNS records"
+
+# Replace with the actual AWS account IDs that should be able to assume this role
+trusted_account_ids = [
+  "111111111111",  # Development account
+  "222222222222",  # Staging account
+  "333333333333"   # Production account
+]
+
+# Replace with the actual Route53 hosted zone IDs that this role should manage
+hosted_zone_ids = [
+  "Z1D633PJN98FT9",     # example.com
+  "Z8VLZEXAMPLE"        # staging.example.com
+]
+
+# Optional: Customize role patterns that can assume this role
+allowed_role_patterns = [
+  "CloudNation-Administrator",
+  "TerraformExecutionRole",
+  "DevOpsTeam*"
+]
+
+# Optional: Adjust session duration (1-12 hours)
+max_session_duration = 7200  # 2 hours
+
+# Optional: Customize Route53 actions
+route53_actions = [
+  "route53:ChangeResourceRecordSets",
+  "route53:GetChange",
+  "route53:GetHostedZone",
+  "route53:ListResourceRecordSets",
+  "route53:ListHostedZones",
+  "route53:ListHostedZonesByName"
+]
